@@ -27,7 +27,16 @@ class Routing:
                     if embeds['embeddings'][i]['source_doc'] not in unique_filenames:
                         unique_filenames.add(embeds['embeddings'][i]['source_doc'])
                 for filename in unique_filenames:
-                    words = filename.split('--')
+                    words = set()
+                    for word in filename.split('--'):
+                        if word.find('-') != -1:
+                            split_words = word.split('-')
+                            for single_word in split_words:
+                                words.add(single_word)
+                        else:
+                            words.add(word)
+                # for filename in unique_filenames:
+                #     words = filename.split('--')
                     words = [self._remove_stopwords(word).lower() for word in words]
                     for word in words:
                         if word not in self.hashmap:
