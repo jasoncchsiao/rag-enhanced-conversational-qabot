@@ -70,7 +70,8 @@ class Routing:
 
     def extract_categories(self, user_query: str=None) -> List[str]:
         """The only external interface open to client end"""
-        words = [word.lower() for word in user_query.strip().split()]
+        words = [word.lower().replace("?","").replace(".","").replace("'","").replace('"','')
+                 for word in user_query.strip().split()]
         visited = set()
         for word in words:
             if word in self.hashmap:
