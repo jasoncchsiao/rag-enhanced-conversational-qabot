@@ -1,1 +1,1 @@
-This is a fully-fledged back-end design for a conversational question-answering with the enhancement of retrieval augmented generation
+This is a fully-fledged back-end design for a conversational question-answering system that generates context from an open sourced LLM, falcon, with the enhancement of retrieval augmented generation from a retriever model, including an embedding model and a quantized version of vector database
